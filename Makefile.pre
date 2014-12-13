@@ -1,0 +1,37 @@
+
+:setvar:sc-config:qry:chorebox-rcp-find sc-config.pre
+
+:bna:extra-recipes
+:wrlry:targetworld:recipes:extra-recipes:
+
+:bna:modules
+:bna:x:chorebox/raywork
+:redun:x:modules:
+
+
+:-:
+:-:all:
+:*: Makefile
+:foreach:modules:mdl:
+  :*: $(srcdir)/plmod/
+  :echo:var:mdl:
+  :*:.pm
+:eachend:
+:foreach:modules:mdl:
+  :->:chorebox-perl lit 2 '-I$(srcdir)/plmod' -c run
+  :*: '$(srcdir)/plmod/
+  :echo:shl:var:mdl:
+  :*:.pm'
+:eachend:
+
+:-:
+:-:install: all
+
+:-:
+:-:uninstall:
+
+
+
+:prcd:var:sc-config::l:targetworld::x
+
+:-:

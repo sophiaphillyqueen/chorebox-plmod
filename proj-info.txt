@@ -1,0 +1,5 @@
+:name:chorebox-plmod:
+:vrsn:0.0.1:
+:phase:a:
+:year:2014:
+:holder:Sophia Elizabeth Shapira
