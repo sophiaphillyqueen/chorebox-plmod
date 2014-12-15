@@ -4,8 +4,9 @@
 :bna:extra-recipes
 :wrlry:targetworld:recipes:extra-recipes:
 
+:setvar:modulset:l:chorebox
 :bna:modules
-:bna:x:chorebox/raywork
+:bna:x:raywork
 :redun:x:modules:
 
 
@@ -14,21 +15,46 @@
 :*: Makefile
 :foreach:modules:mdl:
   :*: $(srcdir)/plmod/
+  :echo:var:modulset:
+  :*:/
   :echo:var:mdl:
   :*:.pm
 :eachend:
 :foreach:modules:mdl:
   :->:chorebox-perl lit 2 '-I$(srcdir)/plmod' -c run
   :*: '$(srcdir)/plmod/
+  :echo:shl:var:modulset:
+  :*:/
   :echo:shl:var:mdl:
   :*:.pm'
 :eachend:
 
 :-:
 :-:install: all
+:foreach:modules:mdl:
+  :setvar:x1:dvar:jl_perl_modules:
+  :apnvar:x1:l:/
+  :apnvar:x1:var:modulset:
+  :apnvar:x1:l:/
+  :apnvar:x1:var:mdl:
+  :setvar:x2:pd:var:x1:
+  :->:mkdir -p '
+  :echo:shl:var:x2:
+  :*:'
+  :->:cp '$(srcdir)/plmod/
+  :echo:shl:var:modulset:
+  :*:/
+  :echo:shl:var:mdl:
+  :*:.pm' '
+  :echo:shl:var:x2:
+  :*:'/.
+:eachend:
 
 :-:
 :-:uninstall:
+:->:rm -rf '$(jl_perl_modules)/
+:echo:shl:var:modulset:
+:*:'
 
 
 
