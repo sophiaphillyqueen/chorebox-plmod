@@ -6,7 +6,7 @@
 
 :setvar:modulset:l:chorebox
 :bna:modules
-:bna:x:raywork
+:bna:x:raywork:rg
 :redun:x:modules:
 
 
