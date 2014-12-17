@@ -17,6 +17,7 @@ sub wrp {
     if ( $lc_chr eq "\'" ) { $lc_chr = "\'\"\'\"\'"; }
     $lc_dst = $lc_chr . $lc_dst;
   }
+  $lc_dst = "\'" . $lc_dst;
   return $lc_dst;
 }
 
